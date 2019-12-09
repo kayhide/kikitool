@@ -1,0 +1,31 @@
+.glassy {
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  @extend .shadow;
+
+  &.list-group {
+    @extend .rounded;
+  }
+}
+
+@each $key, $color in $theme-colors {
+  .glassy-#{$key} {
+    @extend .glassy;
+    color: color-yiq($color);
+    background-color: rgba($color, 0.5);
+
+    table {
+      color: color-yiq($color);
+      background-color: transparent;
+    }
+
+    a {
+      color: color-yiq($color);
+      background-color: transparent;
+    }
+
+    .list-group-item {
+      background-color: transparent;
+    }
+  }
+}
