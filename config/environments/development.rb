@@ -39,7 +39,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.default_url_options = {
-    host: ENV.fetch("HOST") { 'localhost' },
+    host: ENV.fetch("APP_HOST") { 'localhost' },
     port: ENV.fetch("PORT") { 3000 }.to_i
   }
 
