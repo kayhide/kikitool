@@ -4,7 +4,7 @@ COMPOSE_COMMAND := docker-compose
 
 
 dev:
-	@$$($(MAKE) --no-print-directory envs) && hivemind Procfile.dev
+	@nix-shell --run "hivemind $${PORT:+--port $$PORT} --port-step 1 Procfile.dev"
 .PHONY: dev
 
 guard:
@@ -28,10 +28,6 @@ envs:
 	@echo "export DB_PORT=${DB_PORT}"
 .PHONY: envs
 
-rails-console:
-	@$$($(MAKE) --no-print-directory envs) && rails console
-.PHONY: rails-console
-
-db-console:
-	@$$($(MAKE) --no-print-directory envs) && rails dbconsole
-.PHONY: db-console
+shell:
+	@nix-shell --command "exec $$(bash -c "echo $$SHELL")"
+.PHONY: shell
