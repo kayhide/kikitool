@@ -16,7 +16,7 @@
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
 group 'non-interactive' do
-  guard 'livereload', port: ENV.fetch("PORT") { "5035" }.to_i + 30000 do
+  guard 'livereload' do
     extensions = {
       css: :css,
       scss: :css,
