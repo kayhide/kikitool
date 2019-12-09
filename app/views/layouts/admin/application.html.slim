@@ -1,0 +1,21 @@
+doctype html
+html lang=I18n.locale
+  head
+    meta charset="utf-8"
+    meta name="ROBOTS" content="NOODP"
+    meta name="viewport" content="initial-scale=1"
+    title = [content_for(:title), application_title].join(' - ')
+    = csrf_meta_tags
+    = render "stylesheet"
+
+  body
+    == render "icons"
+
+    .app-container
+      == render "navigation"
+
+      main.main-content role="main"
+        == render "flashes"
+        == yield
+
+    == render "javascript"

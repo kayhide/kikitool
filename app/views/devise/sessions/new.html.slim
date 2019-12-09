@@ -1,8 +1,5 @@
 .row.justify-content-center.mt-5
   .col-md-8
-    - alert = flash[:alert]
-    - if alert.present?
-      .alert.glassy-info = alert
     .card.glassy-light
       .card-body
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -13,10 +10,5 @@
           .form-group
             = f.label :password
             = f.password_field :password, class: %w(form-control), autofocus: true, autocomplete: "current-password"
-
-          -if devise_mapping.rememberable?
-            .form-group.form-check
-              = f.check_box :remember_me, class: %w(form-check-input)
-              = f.label :remember_me, class: %w(form-check-label)
 
           = f.submit "Login", class: %w(btn glassy-primary)

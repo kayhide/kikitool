@@ -14,8 +14,9 @@ html
       a.navbar-brand href="/" Kikitool
       button.navbar-toggler.collapsed type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
         span.navbar-toggler-icon
-      div.navbar-collapse.collapse id="navbarCollapse" style=""
+      .navbar-collapse.collapse id="navbarCollapse" style=""
         == render 'layouts/menu'
     .container
+      == render 'layouts/message'
       == yield
 
