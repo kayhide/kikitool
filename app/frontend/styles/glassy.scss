@@ -12,14 +12,9 @@
   .glassy-#{$key} {
     @extend .glassy;
     color: color-yiq($color);
-    background-color: rgba($color, 0.5);
+    background-color: rgba(darken($color, 10%), 0.5);
 
-    table {
-      color: color-yiq($color);
-      background-color: transparent;
-    }
-
-    a {
+    a, table {
       color: color-yiq($color);
       background-color: transparent;
     }
