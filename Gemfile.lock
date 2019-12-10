@@ -83,6 +83,9 @@ GEM
       aws-sdk-core (~> 3, >= 3.77.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
+    aws-sdk-transcribeservice (1.33.0)
+      aws-sdk-core (~> 3, >= 3.71.0)
+      aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
@@ -335,6 +338,7 @@ PLATFORMS
 DEPENDENCIES
   administrate
   aws-sdk-s3
+  aws-sdk-transcribeservice
   bootsnap (>= 1.4.2)
   devise
   devise-i18n
