@@ -1,1 +1,21 @@
-| OK!!
+.row
+  .col-md-6.align-self-center.px-2
+    = form_for Audio.new do |f|
+      .input-group
+          .custom-file
+            = f.file_field :file, class: %w(custom-file-input)
+            = f.label :file, class: %w(custom-file-label)
+          .input-group-append
+            = f.button type: :submit, class: %w(btn btn-success) do
+              i.fas.fa-upload
+
+.clearfix
+
+.row
+  - @audios.each do |audio|
+    .col-md-4.col-lg-2.p-2
+      .card
+        .card-body
+          p = audio.filename
+          p = audio.byte_size
+          p =l audio.created_at, format: :short

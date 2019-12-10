@@ -19,3 +19,9 @@ import $ from "jquery";
 import "bootstrap";
 import bsCustomFileInput from "bs-custom-file-input";
 import "../styles/application";
+
+$(document).ready(() => {
+  $('[data-toggle="popover"]').popover();
+  $('[data-toggle="tooltip"]').tooltip();
+  bsCustomFileInput.init();
+})
