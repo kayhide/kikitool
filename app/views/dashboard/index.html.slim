@@ -14,8 +14,14 @@
 .row
   - @audios.each do |audio|
     .col-md-4.col-lg-2.p-2
-      .card
+      .card.glassy
         .card-body
-          p = audio.filename
-          p = audio.byte_size
-          p =l audio.created_at, format: :short
+          p
+            i.far.fa-file.fa-fw>
+            = audio.filename
+          p
+            i.fas.fa-database.fa-fw>
+            = number_to_human_size audio.byte_size
+          p
+            i.far.fa-clock.fa-fw>
+            =l audio.created_at, format: :short

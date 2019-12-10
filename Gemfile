@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.1'
 gem 'administrate'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
+gem 'devise-i18n'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'pry-doc'
 gem 'pry-rails'
