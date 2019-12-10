@@ -16,11 +16,11 @@ module TranscriptionClient
   end
 
   def put_request! request
-    self.class.client.start_transcription_job req
+    self.class.client.start_transcription_job request
   end
 
   def get_response! request
-    self.class.client.get_transcription_job req.slice(:transcription_job_name)
+    self.class.client.get_transcription_job request.slice(:transcription_job_name)
   end
 
   def get_result! response

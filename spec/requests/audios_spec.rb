@@ -1,5 +1,11 @@
 require 'rails_helper'
 
+vcr_works = {
+  cassette_name: "audios_request/works",
+  match_requests_on: [:host],
+  preserve_exact_body_bytes: true
+}
+
 RSpec.describe "Audios", type: :request do
   authenticate_user
 
@@ -10,7 +16,7 @@ RSpec.describe "Audios", type: :request do
     }
   }
 
-  it "works!" do
+  it "works!", vcr: vcr_works do
     expect {
       post url_for([:audios]), params: { audio: valid_params }
     }.to change(Audio, :count).by(1)

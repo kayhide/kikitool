@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :transcription do
-    user { nil }
-    status { "MyString" }
-    name { "MyString" }
-    request { "MyText" }
-    result { "MyText" }
+    user
+    status { nil }
+    request { nil }
+    response { nil }
+    result { nil }
   end
 end
