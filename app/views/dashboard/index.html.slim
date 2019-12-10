@@ -2,19 +2,19 @@
   .col-md-6.align-self-center.px-2
     = form_for Audio.new do |f|
       .input-group
-          .custom-file
-            = f.file_field :file, class: %w(custom-file-input)
-            = f.label :file, class: %w(custom-file-label)
-          .input-group-append
-            = f.button type: :submit, class: %w(btn btn-success) do
-              i.fas.fa-upload
+        .custom-file
+          = f.file_field :file, class: %w(custom-file-input)
+          = f.label :file, class: %w(custom-file-label)
+        .input-group-append
+          = f.button type: :submit, class: %w(btn btn-success) do
+            i.fas.fa-upload
 
 .clearfix
 
 .row
   - @audios.each do |audio|
-    .col-md-4.col-lg-2.p-2
-      .card.glassy
+    .col-sm-4.col-lg-2.p-2
+      .card.glassy-light
         .card-body
           p
             i.far.fa-file.fa-fw>
@@ -25,3 +25,5 @@
           p
             i.far.fa-clock.fa-fw>
             =l audio.created_at, format: :short
+          button.btn.btn-block.glassy-success data-sound=url_for(audio)
+            i.fas.fa-play.fa-fw

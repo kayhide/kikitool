@@ -18,10 +18,14 @@ require("channels")
 import $ from "jquery";
 import "bootstrap";
 import bsCustomFileInput from "bs-custom-file-input";
+
+import Sound from "./sound";
+
 import "../styles/application";
 
 $(document).ready(() => {
   $('[data-toggle="popover"]').popover();
   $('[data-toggle="tooltip"]').tooltip();
   bsCustomFileInput.init();
+  Sound.init();
 })

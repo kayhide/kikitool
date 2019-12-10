@@ -19,6 +19,16 @@
       background-color: transparent;
     }
 
+    &.btn {
+      &:hover, &:active {
+        color: color-yiq($color);
+
+        &:not(:disabled) {
+          background-color: rgba(lighten($color, 10%), 0.5);
+        }
+      }
+    }
+
     .list-group-item {
       background-color: transparent;
     }
