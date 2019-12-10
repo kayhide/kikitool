@@ -66,7 +66,7 @@ group 'interactive' do
 #                          installed the spring binstubs per the docs)
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
-  guard :rspec, cmd: "bundle exec rspec" do
+  guard :rspec, cmd: "bin/rspec" do
     require "guard/rspec/dsl"
     dsl = Guard::RSpec::Dsl.new(self)
 
