@@ -18,6 +18,20 @@ RSpec.describe AudiosController, type: :controller do
         }.to change(Audio, :count).by(1)
       end
 
+      it "creates a new Transcription" do
+        expect {
+          post :create, params: { audio: valid_params }
+        }.to change(Transcription, :count).by(1)
+        expect(Transcription.last.audio_blob).to eq current_user.audios_blobs.last
+      end
+
+      it "enqueues TranscribeJob" do
+        expect {
+          post :create, params: { audio: valid_params }
+        }.to have_enqueued_job(TranscribeJob)
+               .with(Transcription.last)
+      end
+
       it "redirects to the root page" do
         post :create, params: { audio: valid_params }
         expect(response).to redirect_to([:root])
