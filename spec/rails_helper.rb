@@ -21,7 +21,6 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
   config.filter_run focus: true
-  config.filter_run_excluding transcription: ENV.fetch("TEST_EXCLUDING_TRANSCRIPTION") { false }
   config.run_all_when_everything_filtered = true
 
   config.fixture_path = ::Rails.root.join("spec/fixtures")
