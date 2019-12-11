@@ -8,7 +8,7 @@ class Transcription < ApplicationRecord
   store :response
   store :result
 
-  STATUSES = %w(ready attached requested completed)
+  STATUSES = %w(initialized attached requested completed)
   enum status: STATUSES.map { |x| [x, x] }.to_h
 
   before_save :update_status
@@ -42,10 +42,10 @@ class Transcription < ApplicationRecord
   private
 
   def update_status
-    self.status = "ready"
+    self.status = "initialized"
     if audio.attached?
       self.status = "attached"
-      if request?
+      if response?
         self.status = "requested"
         if result?
           self.status ="completed"
