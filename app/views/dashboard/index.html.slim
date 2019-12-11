@@ -12,7 +12,8 @@
 .clearfix
 
 .row
-  - @audios.each do |audio|
+  - @transcriptions.each do |transcription|
+    - audio = transcription.audio_blob.becomes(Audio)
     .col-sm-6.col-lg-3.p-2
       .card.glassy-light
         .card-body
@@ -33,5 +34,22 @@
           p
             i.far.fa-clock.fa-fw>
             =l audio.created_at, format: :short
+          p
+            i.fas.fa-circle.fa-fw>
+            - if transcription.completed?
+              button.btn.btn-link type="button" data-toggle="modal" data-target="##{dom_id(transcription)}"
+                = transcription.status
+            - else
+              = transcription.status
           button.btn.btn-block.glassy-success data-sound=url_for(audio.blob)
             i.fas.fa-play.fa-fw
+
+- @transcriptions.filter(&:completed?).each do |transcription|
+  .modal.fade id=dom_id(transcription) tabindex="-1" role="dialog"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header
+          button.close type="button" data-dismiss="modal" aria-label="Close"
+            span aria-hidden="true" &times;
+        .modal-body
+          p = transcription.result&.dig("results", "transcripts", 0, "transcript")
