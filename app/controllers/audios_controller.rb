@@ -13,6 +13,10 @@ class AudiosController < ApplicationController
   end
 
   def destroy
+    transcription = @audio.transcription_audio_attachment&.transcription
+    if transcription
+      transcription.audio.purge
+    end
     @audio.user_audios_attachment.destroy
     redirect_to :root, notice: 'Audio was successfully destroyed.'
   end
