@@ -12,6 +12,7 @@ class TranscriptionDashboard < Administrate::BaseDashboard
     audio_attachment: Field::HasOne,
     audio_blob: Field::HasOne,
     id: Field::Number,
+    audio: Field::ActiveStorage,
     status: Field::String.with_options(searchable: false),
     name: Field::String,
     request: Field::JSONB,
@@ -27,8 +28,9 @@ class TranscriptionDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  user
   id
+  user
+  audio
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,7 +39,7 @@ class TranscriptionDashboard < Administrate::BaseDashboard
   user
   id
   status
-  name
+  audio
   request
   response
   result
@@ -51,7 +53,6 @@ class TranscriptionDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
   user
   status
-  name
   request
   response
   result

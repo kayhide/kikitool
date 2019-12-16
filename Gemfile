@@ -6,6 +6,7 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.1'
 
 gem 'administrate'
+gem 'administrate-field-active_storage'
 gem 'administrate-field-jsonb'
 gem 'aws-sdk-s3'
 gem 'aws-sdk-transcribeservice'
@@ -51,8 +52,4 @@ group :test do
   # gem 'webdrivers'
   gem 'webmock'
   gem 'vcr'
-end
-
-group :production do
-  gem 'aws-sdk-s3'
 end
