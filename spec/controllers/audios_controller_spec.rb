@@ -41,20 +41,18 @@ RSpec.describe AudiosController, type: :controller do
 
   describe "DELETE #destroy" do
     let(:file_path) { fixture_path.join('files/visby.mp3') }
-
-    before do
+    let!(:audio) {
       current_user.audios.attach(io: file_path.open, filename: file_path.basename)
-    end
+      current_user.audios_blobs.last.becomes(Audio)
+    }
 
     it "euqueues PurgeJob" do
-      audio = Audio.last
       assert_enqueued_with job: ActiveStorage::PurgeJob do
         delete :destroy, params: { id: audio.id }
       end
     end
 
     it "destroys the requested audio after PurgeJob performed" do
-      audio = Audio.last
       expect {
         perform_enqueued_jobs do
           delete :destroy, params: { id: audio.id }
@@ -62,8 +60,14 @@ RSpec.describe AudiosController, type: :controller do
       }.to change(Audio, :count).by(-1)
     end
 
+    it "destroys transcription if any" do
+      create_list :transcription, 2, audio: audio
+      expect {
+        delete :destroy, params: { id: audio.id }
+      }.to change(Transcription, :count).by(-2)
+    end
+
     it "redirects to the root page" do
-      audio = Audio.last
       delete :destroy, params: { id: audio.id }
       expect(response).to redirect_to([:root])
     end
