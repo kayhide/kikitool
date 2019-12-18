@@ -9,6 +9,10 @@ namespace :aws do
   end
 
   namespace :s3 do
+    task create: [:bucket] do
+      sh "aws s3 mb s3://#{$bucket}"
+    end
+
     task cors: [:bucket] do
       sh "aws s3api get-bucket-cors --bucket #{$bucket}"
     end
