@@ -29,3 +29,5 @@ $(document).ready(() => {
   bsCustomFileInput.init();
   Sound.init();
 })
+
+require("./Main").main();
