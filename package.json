@@ -12,7 +12,8 @@
     "howler": "^2.1.2",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "xhr2": "^0.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {

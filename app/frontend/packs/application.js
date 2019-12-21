@@ -20,6 +20,7 @@ import "bootstrap";
 import bsCustomFileInput from "bs-custom-file-input";
 
 import Sound from "./sound";
+import Main from "./Main";
 
 import "../styles/application";
 
@@ -28,6 +29,5 @@ $(document).ready(() => {
   $('[data-toggle="tooltip"]').tooltip();
   bsCustomFileInput.init();
   Sound.init();
+  Main.main();
 })
-
-require("./Main").main();
