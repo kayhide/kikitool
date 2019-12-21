@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: "dashboard#index"
   devise_for :users
 
+  namespace :api do
+    resources :transcriptions, only: [:index, :show]
+  end
+
   namespace :admin do
     root to: "users#index"
     resources :users
