@@ -15,3 +15,10 @@ ENV.fetch("SEED_USERS") { "" }.split(";").each do |s|
     User.create_or_find_by(username: username, email: email, password: password)
   end
 end
+
+VocabularyFilter.find_or_initialize_by(name: "default").tap do |x|
+  if x.new_record?
+    x.word_list = []
+    x.save!
+  end
+end

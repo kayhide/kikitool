@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root to: "users#index"
     resources :users
     resources :transcriptions
+    resources :vocabulary_filters
   end
 
   resources :audios
