@@ -24,6 +24,8 @@ unprovision:
 .PHONY: unprovision
 
 envs: DB_PORT := $(shell docker-compose port db 5432 | cut -d ':' -f 2)
+envs: REDIS_PORT := $(shell docker-compose port redis 6379 | cut -d ':' -f 2)
 envs:
 	@echo "export DB_PORT=${DB_PORT}"
+	@echo "export REDIS_PORT=${REDIS_PORT}"
 .PHONY: envs

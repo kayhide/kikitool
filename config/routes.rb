@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :audios
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
