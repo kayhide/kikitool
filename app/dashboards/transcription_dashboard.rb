@@ -17,6 +17,7 @@ class TranscriptionDashboard < Administrate::BaseDashboard
     name: Field::String,
     request: Field::JSONB,
     response: Field::JSONB,
+    vocabulary_filter: Field::Text,
     result: Field::JSONB,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -44,6 +45,7 @@ class TranscriptionDashboard < Administrate::BaseDashboard
   request
   response
   result
+  vocabulary_filter
   created_at
   updated_at
   ].freeze

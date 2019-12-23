@@ -29,4 +29,16 @@ module TranscriptionClient
       open(uri, &JSON.method(:load))
     end
   end
+
+  def create_vocabulary_filter! args
+    self.class.client.create_vocabulary_filter args
+  end
+
+  def get_vocabulary_filter! args
+    res = self.class.client.get_vocabulary_filter args
+    uri = res.download_uri
+    if uri
+      open(uri, &:read)
+    end
+  end
 end

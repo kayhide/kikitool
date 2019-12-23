@@ -6,12 +6,16 @@ class TranscribeJob < ApplicationJob
   class AudioNotAttached < StandardError
     attr_reader :transcription
     def initialize transcription
-      super "Audio is not attached: transcription-#{transcription}"
+      super "Audio is not attached: transcription-#{transcription.id}"
       @transcription = transcription
     end
   end
 
   def perform transcription
+    if transcription.vocabulary_filter.nil?
+      CreateVocabularyFilterJob.perform_now transcription
+    end
+
     verify! transcription
 
     if transcription.attached?

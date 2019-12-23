@@ -4,10 +4,29 @@ RSpec.describe TranscribeJob, type: :job do
   describe "#perform" do
     use_vcr
 
-    context "with audio" do
+    before do
+      allow(CreateVocabularyFilterJob).to receive(:perform_now)
+    end
+
+    context "without vocabulary_filter", vcr: vcr_options("in_progress") do
+      let(:transcription) { create :transcription, :with_audio, vocabulary_filter: "ajo" }
+
+      it "skips CreateVocabularyFilterJob" do
+        expect(CreateVocabularyFilterJob).not_to receive(:perform_now)
+        subject.perform transcription
+      end
+    end
+
+
+    context "with audio", vcr: vcr_options("in_progress") do
       let(:transcription) { create :transcription, :with_audio }
 
-      it "saves response", vcr: vcr_options("in_progress") do
+      it "performs CreateVocabularyFilterJob" do
+        expect(CreateVocabularyFilterJob).to receive(:perform_now)
+        subject.perform transcription
+      end
+
+      it "saves response" do
         expect(transcription).to be_attached
         expect {
           subject.perform transcription

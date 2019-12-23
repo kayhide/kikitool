@@ -18,7 +18,7 @@
       p.glassy.rounded.p-3
         span.badge> class=classes = speaker
         - items.filter { |i| range.include? i["start_time"].to_f }.each do |i|
-          span = i.dig("alternatives", 0, "content")
+          span> = i.dig("alternatives", 0, "content")
 - else
   p.glassy-light.rounded.p-3
     = @transcription.result&.dig("results", "transcripts", 0, "transcript")
