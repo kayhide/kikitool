@@ -30,4 +30,5 @@ $(document).ready(() => {
   bsCustomFileInput.init();
   Sound.init();
   Main.main();
+  Main.init();
 })
