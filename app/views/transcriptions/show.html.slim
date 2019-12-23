@@ -1,3 +1,6 @@
+div.mb-3
+  = audio_tag url_for(@transcription.audio_blob), autoplay: false, controls: true
+
 - items = @transcription.result&.dig("results", "items")
 - segments = @transcription.result&.dig("results", "speaker_labels", "segments")
 - if segments
