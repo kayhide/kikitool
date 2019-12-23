@@ -19,6 +19,10 @@ class Transcription < ApplicationRecord
       language_code: "ja-JP",
       media: {
         media_file_uri: "s3://#{bucket}/#{audio.key}"
+      },
+      settings: {
+        show_speaker_labels: true,
+        max_speaker_labels: 2
       }
     }
   end
