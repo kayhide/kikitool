@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_23_084614) do
+ActiveRecord::Schema.define(version: 2019_12_23_094153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2019_12_23_084614) do
   create_table "transcriptions", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "status", null: false
-    t.string "name"
     t.text "request"
     t.text "response"
     t.text "result"
