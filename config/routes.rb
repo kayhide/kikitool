@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'transcriptions/show'
   root to: "dashboard#index"
   devise_for :users
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :audios
+  resources :transcriptions, only: [:show]
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'

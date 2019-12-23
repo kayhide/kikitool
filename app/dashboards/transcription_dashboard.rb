@@ -30,6 +30,7 @@ class TranscriptionDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
   id
   user
+  status
   audio
   ].freeze
 

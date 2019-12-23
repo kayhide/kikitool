@@ -26,23 +26,23 @@
                 | Delete
 
           p
-            i.far.fa-file.fa-fw>
-            = audio.filename
+            i.fas.fa-play-circle.fa-fw>
+            a href="#" data-sound=url_for(audio.blob)
+              u= audio.filename
           p
             i.fas.fa-database.fa-fw>
             = number_to_human_size audio.byte_size
           p
             i.far.fa-clock.fa-fw>
             =l audio.created_at, format: :short
-          p
-            i.fas.fa-circle.fa-fw>
+          p.position-relative
             - if transcription.completed?
-              button.btn.btn-link type="button" data-toggle="modal" data-target="##{dom_id(transcription)}"
-                = transcription.status
+              i.fas.fa-check.fa-fw.text-success>
+              = link_to transcription, class: %w(stretched-link) do
+                u = transcription.status
             - else
+              i.fas.fa-spinner.fa-pulse.fa-fw.text-info>
               = transcription.status
-          button.btn.btn-block.glassy-success data-sound=url_for(audio.blob)
-            i.fas.fa-play.fa-fw
 
 - @transcriptions.filter(&:completed?).each do |transcription|
   .modal.fade id=dom_id(transcription) tabindex="-1" role="dialog"

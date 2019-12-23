@@ -1,0 +1,24 @@
+- items = @transcription.result&.dig("results", "items")
+- segments = @transcription.result&.dig("results", "speaker_labels", "segments")
+- if segments
+  - segments.each do |seg|
+    ruby:
+      speaker = (seg["speaker_label"].split('_').last.to_i + 'a'.ord).chr
+      range = (seg["start_time"].to_f ... seg["end_time"].to_f)
+      case speaker
+        when 'A'
+          classes = %w(badge-info)
+        when 'B'
+          classes = %w(badge-warning)
+        else
+          classes = []
+      end
+
+    div class="speaker-#{speaker}"
+      p.glassy.rounded.p-3
+        span.badge> class=classes = speaker
+        - items.filter { |i| range.include? i["start_time"].to_f }.each do |i|
+          span = i.dig("alternatives", 0, "content")
+- else
+  p.glassy-light.rounded.p-3
+    = @transcription.result&.dig("results", "transcripts", 0, "transcript")

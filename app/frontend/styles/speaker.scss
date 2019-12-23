@@ -1,0 +1,19 @@
+.speaker-a {
+  .glassy {
+    @extend .glassy-info;
+  }
+  .badge {
+    @extend .badge-info;
+    text-transform: uppercase;
+  }
+}
+
+.speaker-b {
+  .glassy {
+    @extend .glassy-danger;
+  }
+  .badge {
+    @extend .badge-danger;
+    text-transform: uppercase;
+  }
+}
