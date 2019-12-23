@@ -40,6 +40,7 @@ class TranscriptionDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   user
   id
+  name
   status
   audio
   request
