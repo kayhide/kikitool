@@ -9,6 +9,8 @@ You can edit this file as you like.
     , "console"
     , "debug"
     , "effect"
+    , "formatters"
+    , "precise-datetime"
     , "psci-support"
     , "react-basic-hooks"
     , "web-dom"

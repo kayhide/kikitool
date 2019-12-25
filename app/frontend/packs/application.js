@@ -29,6 +29,5 @@ $(document).ready(() => {
   $('[data-toggle="tooltip"]').tooltip();
   bsCustomFileInput.init();
   Sound.init();
-  Main.main();
   Main.init();
 })

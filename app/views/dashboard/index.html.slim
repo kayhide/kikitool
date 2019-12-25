@@ -11,36 +11,4 @@
 
 .clearfix
 
-.row
-  - @transcriptions.each do |transcription|
-    - audio = transcription.audio_blob.becomes(Audio)
-    .col-sm-6.col-lg-3.p-2
-      .card.glassy-light.transcription id=dom_id(transcription)
-        .card-body
-          .dropdown.position-absolute.p-0.right-0.top-0.m-1
-            .btn data-toggle="dropdown"
-              i.fas.fa-ellipsis-h
-            .dropdown-menu.dropdown-menu-right aria-labelledby="navbarDropdown"
-              = link_to audio, method: :delete, class: %w(dropdown-item) do
-                i.fas.fa-trash-alt.fa-fw>
-                | Delete
-
-          p
-            i.fas.fa-play-circle.fa-fw>
-            a href="#" data-sound=url_for(audio.blob)
-              u= audio.filename
-          p
-            i.fas.fa-database.fa-fw>
-            = number_to_human_size audio.byte_size
-          p data-toggle="tooltip" title=l(audio.created_at)
-            i.far.fa-clock.fa-fw>
-            = time_ago_in_words audio.created_at
-            |  ago
-          p.position-relative
-            - if transcription.completed?
-              i.fas.fa-check.fa-fw.text-success>
-              = link_to transcription, class: %w(stretched-link) do
-                u = transcription.status
-            - else
-              i.fas.fa-spinner.fa-pulse.fa-fw.text-info>
-              = transcription.status
+#transcription-list
