@@ -5,59 +5,72 @@ import Prelude
 
 import App.Api.Client as Api
 import App.Helper.ByteSize (toHumanByteSize)
-import App.Helper.DateTime (getTimezone, toDateTimeIn, toDefaultDateTime)
+import App.Helper.DateTime (getTimezone, toDateTimeIn)
 import App.Model.Transcription (Transcription(..))
 import Control.MonadPlus (guard)
 import Data.Either (either)
-import Data.Maybe (Maybe(..), isJust, maybe)
+import Data.Maybe (Maybe(..), isJust, isNothing, maybe)
+import Data.Traversable (traverse_)
 import Effect (Effect)
 import Effect.Aff (Milliseconds(..), delay)
 import Effect.Class (liftEffect)
-import Effect.Exception (Error)
+import Effect.Class.Console (log)
+import Effect.Exception (Error, message)
 import Foreign.Object as FO
 import React.Basic.DOM as R
-import React.Basic.Hooks (JSX, ReactComponent, component, element, useState, (/\))
+import React.Basic.Hooks (JSX, ReactComponent, component, element, empty, useEffect, useState, (/\))
 import React.Basic.Hooks as React
 import React.Basic.Hooks.Aff (useAff)
 
 mkTranscriptionList :: Effect (ReactComponent {})
 mkTranscriptionList = do
-  item <- mkTranscriptionItem
+  item_ <- mkTranscriptionItem
   component "TranscriptionList" \props -> React.do
-    res <- useAff unit Api.listTranscriptions
+    loading /\ setLoading <- useState true
+    items /\ setItems <- useState []
 
-    let render transcriptions =
-          R.div { className: "row"
-                , children:
-                  (element item <<< { transcription: _ }) <$> transcriptions
-                }
+    res <- useAff unit do
+      items' <- Api.listTranscriptions
+      liftEffect do
+        setLoading $ const false
+        setItems $ const items'
 
-    pure $ maybe renderLoading (either renderError render) res
+    let error = join $ either Just (const Nothing) <$> res
+    useEffect (show <$> error) $ do
+      traverse_ (log <<< show) error
+      pure $ pure unit
 
-    where
-      renderLoading :: JSX
-      renderLoading =
-        R.div
+    pure $
+      React.fragment
+      [ maybe empty renderError error
+      , R.div
         { className: "row"
         , children:
+          (element item_ <<< { transcription: _ }) <$> items
+        }
+      , renderLoading $ loading && isNothing error
+      ]
+
+    where
+      renderLoading :: Boolean -> JSX
+      renderLoading loading =
+        R.div
+        { className: "d-flex justify-content-center position-absolute top-0 w-100 my-5" <> if loading then "" else " faded"
+        , children:
           [ R.div
-            { className: "col p-2"
+            { className: "col text-center"
             , children:
-              [ R.p
-                { className: "text-center my-5"
-                , children:
-                  [ R.i { className: "fas fa-spinner fa-pulse fa-fw fa-3x text-info" }
-                  ]
-                }
+              [ R.i { className: "fas fa-spinner fa-pulse fa-fw fa-3x text-info" }
               ]
+
             }
           ]
         }
 
       renderError :: Error -> JSX
       renderError err =
-        R.div { className: "alert alert-info"
-              , children: [ R.text $ show err ]
+        R.div { className: "alert alert-danger mt-3"
+              , children: [ R.text $ message err ]
               }
 
 mkTranscriptionItem :: Effect (ReactComponent { transcription :: Transcription })

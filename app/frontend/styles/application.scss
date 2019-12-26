@@ -51,3 +51,8 @@ nav {
 .right-0 {
   right: 0;
 }
+
+.faded {
+  transition: 200ms opacity;
+  opacity: 0;
+}
