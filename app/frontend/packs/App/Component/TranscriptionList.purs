@@ -5,7 +5,7 @@ import Prelude
 
 import App.Api.Client as Api
 import App.Helper.ByteSize (toHumanByteSize)
-import App.Helper.DateTime (toDefaultDateTime)
+import App.Helper.DateTime (getTimezone, toDateTimeIn, toDefaultDateTime)
 import App.Model.Transcription (Transcription(..))
 import Control.MonadPlus (guard)
 import Data.Either (either)
@@ -63,6 +63,7 @@ mkTranscriptionList = do
 mkTranscriptionItem :: Effect (ReactComponent { transcription :: Transcription })
 mkTranscriptionItem  = do
   status_ <- mkTranscriptionStatus
+  tz <- getTimezone
   component "TranscriptionItem" \{ transcription } -> React.do
     let (Transcription t) = transcription
     pure
@@ -93,7 +94,7 @@ mkTranscriptionItem  = do
                   , R.p_
                     [ R.i { className: "far fa-clock fa-fw" }
                     , R.text " "
-                    , R.text $ toDefaultDateTime t.created_at
+                    , R.text $ toDateTimeIn tz t.created_at
                     ]
                   , element status_ { transcription }
                   ]}]}]}
