@@ -2941,7 +2941,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.0.0, follow-redirects@^1.7.0:
+follow-redirects@^1.0.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.9.0.tgz#8d5bcdc65b7108fe1508649c79c12d732dcedb4f"
   integrity sha512-CRcPzsSIbXyVDl0QI01muNDu69S8trU4jArW9LpOt2WtC6LyUJetcIrmfHsRBx7/Jb6GHJUiuqyYxPooFfNt6A==
@@ -6811,12 +6811,12 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-spago@^0.12.1:
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/spago/-/spago-0.12.1.tgz#18deb496c5da9c192217480aa846a55e6e1dbd5a"
-  integrity sha512-wWiS7BTE6EJQu3ysMf7Ty2Ak3jiNIJ55TeZY24NRmwFPu+AYjMMVkNHeeYYLjr/vN4a00jbg6+hqkqj+OTESUQ==
+spago@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/spago/-/spago-0.13.0.tgz#5705b1cddf2f81c190dc1cc0cd12aeb029255fe1"
+  integrity sha512-+kGqTXdcQbmgNb5mfcC+gPgsfNSYIf8JVo0WFa4A8cf1TQQ/xnpbLkI794uudR1cNg5Q/SaUQMBWB4M3VpZu1A==
   dependencies:
-    follow-redirects "^1.7.0"
+    request "^2.88.0"
     tar "^4.4.8"
 
 spark-md5@^3.0.0:
