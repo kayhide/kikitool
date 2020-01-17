@@ -11,6 +11,7 @@ You can edit this file as you like.
     , "effect"
     , "formatters"
     , "precise-datetime"
+    , "profunctor-lenses"
     , "psci-support"
     , "react-basic-hooks"
     , "web-dom"

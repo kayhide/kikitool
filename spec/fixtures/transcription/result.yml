@@ -1,0 +1,79 @@
+---
+results:
+  transcripts:
+  - transcript: うん もしもし あ、 もしもし 高岡 理想
+  speaker_labels:
+    speakers: 2
+    segments:
+    - start_time: '0.34'
+      speaker_label: spk_0
+      end_time: '0.65'
+      items:
+      - start_time: '0.34'
+        speaker_label: spk_0
+        end_time: '0.65'
+    - start_time: '2.74'
+      speaker_label: spk_0
+      end_time: '4.39'
+      items:
+      - start_time: '2.74'
+        speaker_label: spk_0
+        end_time: '3.68'
+      - start_time: '3.69'
+        speaker_label: spk_0
+        end_time: '4.39'
+    - start_time: '4.4'
+      speaker_label: spk_1
+      end_time: '6.31'
+      items:
+      - start_time: '4.4'
+        speaker_label: spk_1
+        end_time: '4.81'
+      - start_time: '4.82'
+        speaker_label: spk_1
+        end_time: '5.26'
+      - start_time: '5.26'
+        speaker_label: spk_1
+        end_time: '6.31'
+  items:
+  - start_time: '0.34'
+    end_time: '0.65'
+    alternatives:
+    - confidence: '0.971'
+      content: うん
+    type: pronunciation
+  - start_time: '2.74'
+    end_time: '3.68'
+    alternatives:
+    - confidence: '1.0'
+      content: もしもし
+    type: pronunciation
+  - start_time: '3.69'
+    end_time: '4.39'
+    alternatives:
+    - confidence: '0.997'
+      content: あ
+    type: pronunciation
+  - alternatives:
+    - confidence: '0.0'
+      content: "、"
+    type: punctuation
+  - start_time: '4.4'
+    end_time: '4.81'
+    alternatives:
+    - confidence: '0.426'
+      content: もしもし
+    type: pronunciation
+  - start_time: '4.82'
+    end_time: '5.26'
+    alternatives:
+    - confidence: '0.102'
+      content: 高岡
+    type: pronunciation
+  - start_time: '5.26'
+    end_time: '6.31'
+    alternatives:
+    - confidence: '0.155'
+      content: 理想
+    type: pronunciation
+status: COMPLETED

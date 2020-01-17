@@ -4,16 +4,19 @@ import Prelude
 
 import Affjax as AX
 import Affjax.ResponseFormat as ResponseFormat
+import App.Model.Segment as Model
+import App.Model.Transcription as Model
 import App.Utils as Utils
+import Data.Argonaut.Core (Json)
 import Data.Argonaut.Decode as Json
 import Data.Array as Array
 import Data.Bifunctor (lmap)
 import Data.Either (either)
 import Data.Maybe (Maybe(..))
 import Data.Traversable (traverse)
+import Debug.Trace (traceM)
 import Effect (Effect)
 import Effect.Aff (Aff)
-import App.Model.Transcription as Model
 import Web.DOM.HTMLCollection as Dom
 import Web.DOM.ParentNode as Dom
 import Web.HTML as HTML
@@ -55,6 +58,14 @@ listTranscriptions = do
 getTranscription :: Int -> Aff (Maybe Model.Transcription)
 getTranscription id = do
   res <- AX.get ResponseFormat.json $ "/api/transcriptions/" <> show id
+  either Utils.onError pure $ do
+    res' <- lmap AX.printError res
+    Json.decodeJson res'.body
+
+
+listSegments :: Int -> Aff (Array Model.Segment)
+listSegments transcriptionId = do
+  res <- AX.get ResponseFormat.json $ "/api/transcriptions/" <> show transcriptionId <> "/segments"
   either Utils.onError pure $ do
     res' <- lmap AX.printError res
     Json.decodeJson res'.body

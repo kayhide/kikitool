@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :api do
-    resources :transcriptions, only: [:index, :show]
+    resources :transcriptions, only: [:index, :show] do
+      resources :segments, only: [:index], controller: "transcriptions/segments"
+    end
   end
 
   namespace :admin do

@@ -1,5 +1,4 @@
-
-module TranscriptionList where
+module App.Component.TranscriptionList where
 
 import Prelude
 
