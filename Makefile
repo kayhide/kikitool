@@ -14,7 +14,8 @@ guard:
 provision:
 	${COMPOSE_COMMAND} up -d
 	@bin/spring stop
-	@$$($(MAKE) --no-print-directory envs) \
+	@$$($(MAKE) --no-print-directory envs)
+	@$$(cat .env/ports) \
 	&& (bin/rails db:migrate 2> /dev/null) || bin/rails db:setup
 .PHONY: provision
 
@@ -26,6 +27,8 @@ unprovision:
 envs: DB_PORT := $(shell docker-compose port db 5432 | cut -d ':' -f 2)
 envs: REDIS_PORT := $(shell docker-compose port redis 6379 | cut -d ':' -f 2)
 envs:
-	@echo "export DB_PORT=${DB_PORT}"
-	@echo "export REDIS_PORT=${REDIS_PORT}"
+	@mkdir -p .env
+	@rm -f .env/ports
+	@echo "export DB_PORT=${DB_PORT}" >> .env/ports
+	@echo "export REDIS_PORT=${REDIS_PORT}" >> .env/ports
 .PHONY: envs
