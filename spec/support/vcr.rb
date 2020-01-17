@@ -15,19 +15,22 @@ Module.new do
     end
   end
 
-  def vcr_options name
-    self.metadata[:recordable] = true
+  def vcr_options name, **opts
     path = Pathname.new(self.metadata[:file_path]).relative_path_from('spec')
     pre = path.to_s.gsub(/_spec.rb$/, '')
     {
       cassette_name: Pathname.new("#{pre}/#{name}"),
       match_requests_on: [:host],
-      preserve_exact_body_bytes: true
+      preserve_exact_body_bytes: true,
+      **opts
     }
   end
 
   RSpec.configure do |config|
-    config.filter_run :recordable if ENV.key?("TEST_RECORDING")
+    if ENV.key?("TEST_RECORDING")
+      config.filter_run vcr: -> () { true }
+      config.filter_run_excluding :play_only
+    end
     config.extend self
   end
 end

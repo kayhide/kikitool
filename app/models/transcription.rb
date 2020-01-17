@@ -29,9 +29,13 @@ class Transcription < ApplicationRecord
       settings: {
         show_speaker_labels: true,
         max_speaker_labels: 2,
-        vocabulary_filter_name: name,
-        vocabulary_filter_method: "remove"
-      }
+      }.merge(
+        vocabulary_filter? ?
+          {
+            vocabulary_filter_name: name,
+            vocabulary_filter_method: "remove"
+          } : {}
+      )
     }
   end
 

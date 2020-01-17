@@ -15,11 +15,6 @@ FactoryBot.define do
       end
     end
 
-    trait :ready do
-      with_audio
-      ready? { true }
-    end
-
     after :create do |user, options|
       extend ActiveJob::TestHelper
       if options.audio_file
@@ -28,10 +23,6 @@ FactoryBot.define do
           user.audios.attach(io: file.open, filename: file.basename)
         end
         user.reload
-      end
-
-      if options.ready?
-        SetupJob.perform_now(user)
       end
     end
   end
