@@ -14,7 +14,7 @@
     color: color-yiq($color);
     background-color: rgba(darken($color, 10%), 0.5);
 
-    a, table {
+    table {
       color: color-yiq($color);
       background-color: transparent;
     }

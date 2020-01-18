@@ -1,0 +1,9 @@
+.bottom-player {
+  @extend .fixed-bottom;
+  @extend .glassy-dark;
+
+  .progress {
+    height: 6px;
+    @extend .rounded-0;
+  }
+}

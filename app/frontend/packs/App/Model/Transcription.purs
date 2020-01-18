@@ -23,6 +23,7 @@ newtype Transcription =
   , audio :: Audio
   }
 
+derive instance eqTranscription :: Eq Transcription
 derive instance newtypeTranscription :: Newtype Transcription _
 
 instance decodeJsonTranscription :: DecodeJson Transcription where

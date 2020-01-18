@@ -10,6 +10,8 @@ You can edit this file as you like.
     , "debug"
     , "effect"
     , "formatters"
+    , "js-timers"
+    , "monad-loops"
     , "precise-datetime"
     , "profunctor-lenses"
     , "psci-support"
