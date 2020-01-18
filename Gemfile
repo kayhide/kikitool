@@ -24,7 +24,6 @@ gem 'sidekiq'
 gem 'sidekiq-history'
 gem 'sidekiq-limit_fetch'
 gem 'slim-rails'
-gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 # gem 'redis', '~> 4.0'
