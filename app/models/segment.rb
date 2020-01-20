@@ -32,13 +32,15 @@ class Segment
         speaker = (seg["speaker_label"].split('_').last.to_i + 'a'.ord).chr
         range = (seg["start_time"].to_f ... seg["end_time"].to_f)
         xs = items.filter { |i| range.include? i.start_time }
-        Segment.new(
-          speaker_label: speaker,
-          start_time: range.first,
-          end_time: range.last,
-          items: xs
-        )
-      end
+        if xs.present?
+          Segment.new(
+            speaker_label: speaker,
+            start_time: range.first,
+            end_time: range.last,
+            items: xs
+          )
+        end
+      end.compact
     end
   end
 
