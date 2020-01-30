@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://kikitool-test.s3.ap-northeast-1.amazonaws.com/ik1pqj9bw0u6p5y2ga5edj99mjib
+    uri: https://kikitool-test.s3.ap-northeast-1.amazonaws.com/l6zmsshkzmop841lu0llz7161ket
     body:
       encoding: ASCII-8BIT
       base64_string: |
@@ -504,13 +504,13 @@ http_interactions:
       Host:
       - kikitool-test.s3.ap-northeast-1.amazonaws.com
       X-Amz-Date:
-      - 20200117T163536Z
+      - 20200130T083559Z
       X-Amz-Content-Sha256:
       - 33ecd3d4ca07d435379dc9e818313ec1203fa64c3f0bb65576f6f086adf0d027
       Authorization:
-      - AWS4-HMAC-SHA256 Credential=AKIAZSRFPEVTL4HUHVUB/20200117/ap-northeast-1/s3/aws4_request,
+      - AWS4-HMAC-SHA256 Credential=AKIAZSRFPEVTL4HUHVUB/20200130/ap-northeast-1/s3/aws4_request,
         SignedHeaders=content-md5;content-type;expect;host;user-agent;x-amz-content-sha256;x-amz-date,
-        Signature=5d7a58afd83246795f75271d607b72e49997f59a2684aea01845f8a6b6044458
+        Signature=d2928c12c4698bab63768267af41f11d20aabcab5f60adf0932083236c625122
       Content-Length:
       - '21752'
       Accept:
@@ -521,11 +521,11 @@ http_interactions:
       message: OK
     headers:
       X-Amz-Id-2:
-      - YcaegW2a5Z0Nw5E/evHb8G9vbVDxnjWDuAx5Vay4NoytUlkQfG8sLREIMTE7CNXoWeKhVwWBcM4=
+      - zSVxC953cwzcQs+lKi0lOjgZ/NBKTFXnZhonru6Iph8MIQjsgLHkoGo16Jus30RIW9s6Q9ohI+A=
       X-Amz-Request-Id:
-      - 0AA1C3CB0795DFC1
+      - D31EC76F36A9AD26
       Date:
-      - Fri, 17 Jan 2020 16:35:38 GMT
+      - Thu, 30 Jan 2020 08:36:00 GMT
       Etag:
       - '"f117155ca529001398572c2d2c53a15f"'
       Content-Length:
@@ -536,17 +536,17 @@ http_interactions:
       encoding: UTF-8
       base64_string: ''
     http_version: 
-  recorded_at: Fri, 17 Jan 2020 16:35:37 GMT
+  recorded_at: Thu, 30 Jan 2020 08:35:59 GMT
 - request:
     method: post
     uri: https://transcribe.ap-northeast-1.amazonaws.com/
     body:
       encoding: UTF-8
       base64_string: |
-        eyJUcmFuc2NyaXB0aW9uSm9iTmFtZSI6Imtpa2l0b29sLXRlc3QtNjY1Iiwi
+        eyJUcmFuc2NyaXB0aW9uSm9iTmFtZSI6Imtpa2l0b29sLXRlc3QtMTM0Iiwi
         TGFuZ3VhZ2VDb2RlIjoiamEtSlAiLCJNZWRpYSI6eyJNZWRpYUZpbGVVcmki
-        OiJzMzovL2tpa2l0b29sLXRlc3QvaWsxcHFqOWJ3MHU2cDV5MmdhNWVkajk5
-        bWppYiJ9LCJTZXR0aW5ncyI6eyJTaG93U3BlYWtlckxhYmVscyI6dHJ1ZSwi
+        OiJzMzovL2tpa2l0b29sLXRlc3QvbDZ6bXNzaGt6bW9wODQxbHUwbGx6NzE2
+        MWtldCJ9LCJTZXR0aW5ncyI6eyJTaG93U3BlYWtlckxhYmVscyI6dHJ1ZSwi
         TWF4U3BlYWtlckxhYmVscyI6Mn19
     headers:
       Content-Type:
@@ -560,13 +560,13 @@ http_interactions:
       Host:
       - transcribe.ap-northeast-1.amazonaws.com
       X-Amz-Date:
-      - 20200117T163537Z
+      - 20200130T083559Z
       X-Amz-Content-Sha256:
-      - 10823310eb41ce243f5809d71be779827b17763ffb40037503528a9c2c25c1a2
+      - 728910fe42bbc79546fb37c52c10821499c1e87bfe24f4ef8ba1ffbeea814d1d
       Authorization:
-      - AWS4-HMAC-SHA256 Credential=AKIAZSRFPEVTL4HUHVUB/20200117/ap-northeast-1/transcribe/aws4_request,
+      - AWS4-HMAC-SHA256 Credential=AKIAZSRFPEVTL4HUHVUB/20200130/ap-northeast-1/transcribe/aws4_request,
         SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
-        Signature=424316ddcae31a6d013ec46ff56a7bd97e075292d14699a92601a4d8e5ddd02b
+        Signature=787add41271ef02b653da3d922a326c1c529ca5a35aff7caa73b9e13c5d25533
       Content-Length:
       - '201'
       Accept:
@@ -579,32 +579,32 @@ http_interactions:
       Content-Type:
       - application/x-amz-json-1.1
       Date:
-      - Fri, 17 Jan 2020 16:35:37 GMT
+      - Thu, 30 Jan 2020 08:35:59 GMT
       X-Amzn-Requestid:
-      - 0c2ac674-324b-4129-94a6-a1df3537c844
+      - b1368524-3366-4e3e-b757-b24f45166cf6
       Content-Length:
-      - '322'
+      - '321'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       base64_string: |
-        eyJUcmFuc2NyaXB0aW9uSm9iIjp7IkNyZWF0aW9uVGltZSI6MS41NzkyNzg5
-        Mzc1MjVFOSwiTGFuZ3VhZ2VDb2RlIjoiamEtSlAiLCJNZWRpYSI6eyJNZWRp
-        YUZpbGVVcmkiOiJzMzovL2tpa2l0b29sLXRlc3QvaWsxcHFqOWJ3MHU2cDV5
-        MmdhNWVkajk5bWppYiJ9LCJTZXR0aW5ncyI6eyJNYXhTcGVha2VyTGFiZWxz
+        eyJUcmFuc2NyaXB0aW9uSm9iIjp7IkNyZWF0aW9uVGltZSI6MS41ODAzNzMz
+        NTk4ODZFOSwiTGFuZ3VhZ2VDb2RlIjoiamEtSlAiLCJNZWRpYSI6eyJNZWRp
+        YUZpbGVVcmkiOiJzMzovL2tpa2l0b29sLXRlc3QvbDZ6bXNzaGt6bW9wODQx
+        bHUwbGx6NzE2MWtldCJ9LCJTZXR0aW5ncyI6eyJNYXhTcGVha2VyTGFiZWxz
         IjoyLCJTaG93U3BlYWtlckxhYmVscyI6dHJ1ZX0sIlN0YXJ0VGltZSI6MS41
-        NzkyNzg5Mzc1NjJFOSwiVHJhbnNjcmlwdGlvbkpvYk5hbWUiOiJraWtpdG9v
-        bC10ZXN0LTY2NSIsIlRyYW5zY3JpcHRpb25Kb2JTdGF0dXMiOiJJTl9QUk9H
-        UkVTUyJ9fQ==
+        ODAzNzMzNTk5MkU5LCJUcmFuc2NyaXB0aW9uSm9iTmFtZSI6Imtpa2l0b29s
+        LXRlc3QtMTM0IiwiVHJhbnNjcmlwdGlvbkpvYlN0YXR1cyI6IklOX1BST0dS
+        RVNTIn19
     http_version: 
-  recorded_at: Fri, 17 Jan 2020 16:35:37 GMT
+  recorded_at: Thu, 30 Jan 2020 08:35:59 GMT
 - request:
     method: post
     uri: https://transcribe.ap-northeast-1.amazonaws.com/
     body:
       encoding: UTF-8
-      base64_string: 'eyJUcmFuc2NyaXB0aW9uSm9iTmFtZSI6Imtpa2l0b29sLXRlc3QtNjY1In0=
+      base64_string: 'eyJUcmFuc2NyaXB0aW9uSm9iTmFtZSI6Imtpa2l0b29sLXRlc3QtMTM0In0=
 
         '
     headers:
@@ -619,13 +619,13 @@ http_interactions:
       Host:
       - transcribe.ap-northeast-1.amazonaws.com
       X-Amz-Date:
-      - 20200117T163537Z
+      - 20200130T083600Z
       X-Amz-Content-Sha256:
-      - 62b10dc5f2c63417504ef759e64714beadbcd2f6daf223ca8a3d3b780fd35f14
+      - afe96b73f205a0e9e9522174f19c4c25fb40c834834f404f78f876aa3bd89a36
       Authorization:
-      - AWS4-HMAC-SHA256 Credential=AKIAZSRFPEVTL4HUHVUB/20200117/ap-northeast-1/transcribe/aws4_request,
+      - AWS4-HMAC-SHA256 Credential=AKIAZSRFPEVTL4HUHVUB/20200130/ap-northeast-1/transcribe/aws4_request,
         SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
-        Signature=59fe7ba6fa142ffcc6676e076c6204efcf14e4fed99a2ff6e9710a6db256c0b6
+        Signature=c3727b2c4cff3b82485098b3177f4c5b70a93fe7baaecd4d3d23d6444222f37b
       Content-Length:
       - '44'
       Accept:
@@ -638,33 +638,33 @@ http_interactions:
       Content-Type:
       - application/x-amz-json-1.1
       Date:
-      - Fri, 17 Jan 2020 16:35:37 GMT
+      - Thu, 30 Jan 2020 08:36:00 GMT
       X-Amzn-Requestid:
-      - 94d122f5-fd72-40c5-b1ae-2238224adb81
+      - 8a1a8053-65f4-4462-87e4-15ba6808befc
       Content-Length:
-      - '393'
+      - '392'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       base64_string: |
-        eyJUcmFuc2NyaXB0aW9uSm9iIjp7IkNyZWF0aW9uVGltZSI6MS41NzkyNzg5
-        Mzc1MjVFOSwiTGFuZ3VhZ2VDb2RlIjoiamEtSlAiLCJNZWRpYSI6eyJNZWRp
-        YUZpbGVVcmkiOiJzMzovL2tpa2l0b29sLXRlc3QvaWsxcHFqOWJ3MHU2cDV5
-        MmdhNWVkajk5bWppYiJ9LCJTZXR0aW5ncyI6eyJDaGFubmVsSWRlbnRpZmlj
+        eyJUcmFuc2NyaXB0aW9uSm9iIjp7IkNyZWF0aW9uVGltZSI6MS41ODAzNzMz
+        NTk4ODZFOSwiTGFuZ3VhZ2VDb2RlIjoiamEtSlAiLCJNZWRpYSI6eyJNZWRp
+        YUZpbGVVcmkiOiJzMzovL2tpa2l0b29sLXRlc3QvbDZ6bXNzaGt6bW9wODQx
+        bHUwbGx6NzE2MWtldCJ9LCJTZXR0aW5ncyI6eyJDaGFubmVsSWRlbnRpZmlj
         YXRpb24iOmZhbHNlLCJNYXhTcGVha2VyTGFiZWxzIjoyLCJTaG93QWx0ZXJu
         YXRpdmVzIjpmYWxzZSwiU2hvd1NwZWFrZXJMYWJlbHMiOnRydWV9LCJTdGFy
-        dFRpbWUiOjEuNTc5Mjc4OTM3NTYyRTksIlRyYW5zY3JpcHQiOnt9LCJUcmFu
-        c2NyaXB0aW9uSm9iTmFtZSI6Imtpa2l0b29sLXRlc3QtNjY1IiwiVHJhbnNj
-        cmlwdGlvbkpvYlN0YXR1cyI6IklOX1BST0dSRVNTIn19
+        dFRpbWUiOjEuNTgwMzczMzU5OTJFOSwiVHJhbnNjcmlwdCI6e30sIlRyYW5z
+        Y3JpcHRpb25Kb2JOYW1lIjoia2lraXRvb2wtdGVzdC0xMzQiLCJUcmFuc2Ny
+        aXB0aW9uSm9iU3RhdHVzIjoiSU5fUFJPR1JFU1MifX0=
     http_version: 
-  recorded_at: Fri, 17 Jan 2020 16:35:37 GMT
+  recorded_at: Thu, 30 Jan 2020 08:36:00 GMT
 - request:
     method: post
     uri: https://transcribe.ap-northeast-1.amazonaws.com/
     body:
       encoding: UTF-8
-      base64_string: 'eyJUcmFuc2NyaXB0aW9uSm9iTmFtZSI6Imtpa2l0b29sLXRlc3QtNjY1In0=
+      base64_string: 'eyJUcmFuc2NyaXB0aW9uSm9iTmFtZSI6Imtpa2l0b29sLXRlc3QtMTM0In0=
 
         '
     headers:
@@ -679,13 +679,13 @@ http_interactions:
       Host:
       - transcribe.ap-northeast-1.amazonaws.com
       X-Amz-Date:
-      - 20200117T163542Z
+      - 20200130T083605Z
       X-Amz-Content-Sha256:
-      - 62b10dc5f2c63417504ef759e64714beadbcd2f6daf223ca8a3d3b780fd35f14
+      - afe96b73f205a0e9e9522174f19c4c25fb40c834834f404f78f876aa3bd89a36
       Authorization:
-      - AWS4-HMAC-SHA256 Credential=AKIAZSRFPEVTL4HUHVUB/20200117/ap-northeast-1/transcribe/aws4_request,
+      - AWS4-HMAC-SHA256 Credential=AKIAZSRFPEVTL4HUHVUB/20200130/ap-northeast-1/transcribe/aws4_request,
         SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
-        Signature=9318ba62eb9109af31bfa08c25c8ab56e4c75834892669be3f1f01643400ead9
+        Signature=d7b6861289ba775dee1afb292502a1606563a89d54de70d369a8f42e8bab1eaf
       Content-Length:
       - '44'
       Accept:
@@ -698,26 +698,26 @@ http_interactions:
       Content-Type:
       - application/x-amz-json-1.1
       Date:
-      - Fri, 17 Jan 2020 16:35:42 GMT
+      - Thu, 30 Jan 2020 08:36:05 GMT
       X-Amzn-Requestid:
-      - b35813af-61f0-406a-b296-05317877cb5d
+      - 8edb5316-f6f6-4138-aa2b-a05872d6f983
       Content-Length:
-      - '442'
+      - '441'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       base64_string: |
-        eyJUcmFuc2NyaXB0aW9uSm9iIjp7IkNyZWF0aW9uVGltZSI6MS41NzkyNzg5
-        Mzc1MjVFOSwiTGFuZ3VhZ2VDb2RlIjoiamEtSlAiLCJNZWRpYSI6eyJNZWRp
-        YUZpbGVVcmkiOiJzMzovL2tpa2l0b29sLXRlc3QvaWsxcHFqOWJ3MHU2cDV5
-        MmdhNWVkajk5bWppYiJ9LCJNZWRpYUZvcm1hdCI6Im1wMyIsIk1lZGlhU2Ft
+        eyJUcmFuc2NyaXB0aW9uSm9iIjp7IkNyZWF0aW9uVGltZSI6MS41ODAzNzMz
+        NTk4ODZFOSwiTGFuZ3VhZ2VDb2RlIjoiamEtSlAiLCJNZWRpYSI6eyJNZWRp
+        YUZpbGVVcmkiOiJzMzovL2tpa2l0b29sLXRlc3QvbDZ6bXNzaGt6bW9wODQx
+        bHUwbGx6NzE2MWtldCJ9LCJNZWRpYUZvcm1hdCI6Im1wMyIsIk1lZGlhU2Ft
         cGxlUmF0ZUhlcnR6IjoyMjA1MCwiU2V0dGluZ3MiOnsiQ2hhbm5lbElkZW50
         aWZpY2F0aW9uIjpmYWxzZSwiTWF4U3BlYWtlckxhYmVscyI6MiwiU2hvd0Fs
         dGVybmF0aXZlcyI6ZmFsc2UsIlNob3dTcGVha2VyTGFiZWxzIjp0cnVlfSwi
-        U3RhcnRUaW1lIjoxLjU3OTI3ODkzNzU2MkU5LCJUcmFuc2NyaXB0Ijp7fSwi
-        VHJhbnNjcmlwdGlvbkpvYk5hbWUiOiJraWtpdG9vbC10ZXN0LTY2NSIsIlRy
-        YW5zY3JpcHRpb25Kb2JTdGF0dXMiOiJJTl9QUk9HUkVTUyJ9fQ==
+        U3RhcnRUaW1lIjoxLjU4MDM3MzM1OTkyRTksIlRyYW5zY3JpcHQiOnt9LCJU
+        cmFuc2NyaXB0aW9uSm9iTmFtZSI6Imtpa2l0b29sLXRlc3QtMTM0IiwiVHJh
+        bnNjcmlwdGlvbkpvYlN0YXR1cyI6IklOX1BST0dSRVNTIn19
     http_version: 
-  recorded_at: Fri, 17 Jan 2020 16:35:43 GMT
+  recorded_at: Thu, 30 Jan 2020 08:36:05 GMT
 recorded_with: VCR 5.0.0

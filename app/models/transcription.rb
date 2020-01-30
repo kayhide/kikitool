@@ -10,7 +10,7 @@ class Transcription < ApplicationRecord
   store :response
   store :result
 
-  STATUSES = %w(initialized attached requested completed)
+  STATUSES = %w(initialized attached requested completed failed)
   enum status: STATUSES.map { |x| [x, x] }.to_h
 
   LANGUAGE = "ja-JP"
@@ -74,6 +74,8 @@ class Transcription < ApplicationRecord
   private
 
   def update_status
+    return if failed?
+
     self.status = "initialized"
     if audio.attached?
       self.status = "attached"

@@ -95,5 +95,15 @@ RSpec.describe TranscribeJob, type: :job do
         }.to raise_error(TranscribeJob::AudioNotAttached)
       end
     end
+
+    context "with bad request", vcr: vcr_options("bad_request") do
+      let(:transcription) { create :transcription, :with_audio }
+
+      it "raises BadRequest" do
+        expect {
+          subject.perform transcription
+        }.to raise_error(TranscribeJob::TranscribeServiceError)
+      end
+    end
   end
 end

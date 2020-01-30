@@ -11,6 +11,22 @@ class TranscribeJob < ApplicationJob
     end
   end
 
+  class TranscribeServiceError < StandardError
+    attr_reader :transcription
+    def initialize transcription, err
+      super "Bad request: transcription-#{transcription.id}, #{err.message}"
+      @transcription = transcription
+    end
+  end
+
+  rescue_from(AudioNotAttached) do |error|
+    error.transcription.failed!
+  end
+
+  rescue_from(TranscribeServiceError) do |error|
+    error.transcription.failed!
+  end
+
   def perform transcription
     if transcription.vocabulary_filter.nil?
       CreateVocabularyFilterJob.perform_now transcription
@@ -29,6 +45,9 @@ class TranscribeJob < ApplicationJob
     unless transcription.completed?
       TranscribeJob.set(wait: POLLING_INTERVAL).perform_later(transcription)
     end
+
+  rescue Aws::TranscribeService::Errors::BadRequestException => e
+    raise TranscribeServiceError.new(transcription, e)
   end
 
   def verify! transcription
