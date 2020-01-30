@@ -1,6 +1,6 @@
-.row
-  .col-md-6.align-self-center.px-2
-    = form_for Audio.new do |f|
+= form_for @form do |f|
+  .row.align-items-center
+    .col-md-6.px-2
       .input-group
         .custom-file
           = f.file_field :file, class: %w(custom-file-input)
@@ -8,6 +8,26 @@
         .input-group-append
           = f.button type: :submit, class: %w(btn btn-success) do
             i.fas.fa-upload
+    .col-md-6.px-2
+      .btn-group.btn-group-toggle data-toggle="buttons"
+        .input-group-prepend
+          .input-group-text
+            i.fas.fa-users
+        = f.label :speakers_count_1, class: %w(btn btn-info) do
+          = f.radio_button :speakers_count, 1
+          i.fas.fa-user
+          span.ml-2 1
+        = f.label :speakers_count_2, class: %w(btn btn-info) do
+          = f.radio_button :speakers_count, 2
+          i.fas.fa-user
+          i.fas.fa-user
+          span.ml-2 2
+        = f.label :speakers_count_3, class: %w(btn btn-info) do
+          = f.radio_button :speakers_count, 3
+          i.fas.fa-user
+          i.fas.fa-user
+          i.fas.fa-user
+          span.ml-2 3
 
 .clearfix
 

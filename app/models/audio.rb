@@ -4,6 +4,8 @@ class Audio < ActiveStorage::Blob
   has_many :transcription_audio_attachments, foreign_key: :blob_id
   has_many :transcriptions, through: :transcription_audio_attachments
 
+  attribute :speakers_count, :integer
+
   def blob
     becomes(self.class.superclass)
   end

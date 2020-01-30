@@ -29,9 +29,13 @@ class Transcription < ApplicationRecord
         media_file_uri: "s3://#{bucket}/#{audio.key}"
       },
       settings: {
-        show_speaker_labels: true,
-        max_speaker_labels: 2,
       }.merge(
+        1 < speakers_count ?
+          {
+            show_speaker_labels: true,
+            max_speaker_labels: speakers_count,
+          } : {}
+      ).merge(
         vocabulary_filter? ?
           {
             vocabulary_filter_name: name,

@@ -99,6 +99,11 @@ mkTranscriptionItem  = do
                         [ R.u_ $ [ R.text t.audio.filename ] ]
                       }]
                   , R.p_
+                    [ R.i { className: "fas fa-users fa-fw" }
+                    , R.text " "
+                    , R.text $ show t.speakers_count
+                    ]
+                  , R.p_
                     [ R.i { className: "fas fa-database fa-fw" }
                     , R.text " "
                     , R.text $ toHumanByteSize t.audio.byte_size
@@ -114,8 +119,8 @@ mkTranscriptionItem  = do
 mkTranscriptionStatus :: Effect (ReactComponent { transcription :: Transcription })
 mkTranscriptionStatus = do
   component "TranscriptionStatus" \{ transcription } -> React.do
-    let (Transcription t) = transcription
-    polling /\ setPolling <- useState $ 0 <$ guard (t.status /= "completed")
+    let Transcription t = transcription
+    polling /\ setPolling <- useState $ 0 <$ guard (t.status /= "completed" && t.status /= "failed")
     status /\ setStatus <- useState t.status
     _ <- useAff polling $
       when (isJust polling) do
@@ -141,6 +146,12 @@ mkTranscriptionStatus = do
           , children:
             [ R.u_ $ [ R.text status ] ]
           }]
+      "failed" ->
+        R.p_
+        [ R.i { className: "fas fa-exclamation-triangle fa-fw text-warning" }
+        , R.text " "
+        , R.text status
+        ]
       _ ->
         R.p_
         [ R.i { className: "fas fa-spinner fa-pulse fa-fw text-info" }

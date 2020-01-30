@@ -6,7 +6,8 @@ RSpec.describe "Audios", type: :request do
   let(:file) { 'files/visby.mp3' }
   let(:valid_params) {
     {
-      file: fixture_file_upload(file)
+      file: fixture_file_upload(file),
+      speakers_count: 2
     }
   }
 

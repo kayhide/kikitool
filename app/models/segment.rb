@@ -41,6 +41,22 @@ class Segment
           )
         end
       end.compact
+    else
+      items = (result&.dig("results", "items") || []).map do |i|
+        Item.new(
+          start_time: i["start_time"].to_f,
+          end_time: i["end_time"].to_f,
+          content: i.dig("alternatives", 0, "content")
+        )
+      end
+      if items.present?
+        [Segment.new(
+          speaker_label: 'a',
+          start_time: items.first.start_time,
+          end_time: items.last.start_time,
+          items: items
+        )]
+      end.to_a
     end
   end
 

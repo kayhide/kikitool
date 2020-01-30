@@ -8,7 +8,7 @@ class AudiosController < ApplicationController
     transcription =
       current_user.transcriptions.create!(
         audio: audio,
-        speakers_count: 2
+        speakers_count: audio_params[:speakers_count]
       )
     TranscribeJob.perform_later transcription
     redirect_to :root, notice: 'Audio was successfully created.'

@@ -19,6 +19,7 @@ newtype Transcription =
   Transcription
   { id :: Int
   , status :: String
+  , speakers_count :: Int
   , created_at :: DateTime
   , audio :: Audio
   }
@@ -31,9 +32,10 @@ instance decodeJsonTranscription :: DecodeJson Transcription where
     obj <- decodeJson json
     id <- obj .: "id"
     status <- obj .: "status"
+    speakers_count <- obj .: "speakers_count"
     created_at <- decodeDateTime =<< obj .: "created_at"
     audio <- obj .: "audio"
-    pure $ Transcription { id, status, created_at, audio }
+    pure $ Transcription { id, status, speakers_count, created_at, audio }
 
     where
       decodeDateTime :: String -> Either String DateTime
