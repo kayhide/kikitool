@@ -99,20 +99,31 @@ mkTranscriptionItem  = do
                         [ R.u_ $ [ R.text t.audio.filename ] ]
                       }]
                   , R.p_
-                    [ R.i { className: "fas fa-users fa-fw" }
-                    , R.text " "
-                    , R.text $ show t.speakers_count
-                    ]
-                  , R.p_
-                    [ R.i { className: "fas fa-database fa-fw" }
-                    , R.text " "
-                    , R.text $ toHumanByteSize t.audio.byte_size
-                    ]
-                  , R.p_
                     [ R.i { className: "far fa-clock fa-fw" }
                     , R.text " "
                     , R.text $ toDateTimeIn tz t.created_at
                     ]
+                  , R.div
+                    { className: "row"
+                    , children:
+                      [ R.p
+                        { className: "col-sm-4"
+                        , children:
+                          [ R.i { className: "fas fa-users fa-fw" }
+                          , R.text " "
+                          , R.text $ show t.speakers_count
+                          ]
+                        }
+                      , R.p
+                        { className: "col-sm-8"
+                        , children:
+                          [ R.i { className: "fas fa-database fa-fw" }
+                          , R.text " "
+                          , R.text $ toHumanByteSize t.audio.byte_size
+                          ]
+                        }
+                      ]
+                    }
                   , element status_ { transcription }
                   ]}]}]}
 

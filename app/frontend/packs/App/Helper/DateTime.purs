@@ -7,6 +7,7 @@ import Data.Formatter.DateTime (Formatter, FormatterCommand(..), format)
 import Data.JSDate as JSDate
 import Data.List (List(..), (:))
 import Data.Maybe (maybe)
+import Data.Time.Duration (negateDuration)
 import Data.Time.Duration as D
 import Effect (Effect)
 
@@ -28,7 +29,8 @@ toDefaultDateTime dt = format f dt
         : Nil
 
 toDateTimeIn :: Timezone -> DateTime -> String
-toDateTimeIn (Timezone offset) dt = maybe "???" toDefaultDateTime $ adjust offset dt
+toDateTimeIn (Timezone offset) dt =
+  maybe "???" toDefaultDateTime $ adjust (negateDuration offset) dt
 
 
 newtype Timezone = Timezone D.Minutes
