@@ -5,6 +5,7 @@ FactoryBot.define do
     request { nil }
     response { nil }
     result { nil }
+    speakers_count { 2 }
 
     transient do
       audio_file { nil }

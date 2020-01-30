@@ -4,6 +4,8 @@ class Transcription < ApplicationRecord
   belongs_to :user
   has_one_attached :audio, dependent: false
 
+  validates :speakers_count, presence: true
+
   store :request
   store :response
   store :result
