@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+mkdir -p "$BUILD_DIR/bin"
+
+wget -q https://github.com/purescript/purescript/releases/download/v0.13.6/linux64.tar.gz
+tar -zxvf linux64.tar.gz
+mv purescript/purs "$BUILD_DIR/bin/"
+rm linux64.tar.gz
+
+wget -q https://github.com/spacchetti/spago/releases/download/0.14.0/linux.tar.gz
+tar -zxvf linux.tar.gz
+mv spago "$BUILD_DIR/bin/"
+rm linux.tar.gz
