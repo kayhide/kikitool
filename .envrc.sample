@@ -1,0 +1,11 @@
+use nix
+layout node
+layout ruby
+PATH_add bin
+
+if [[ -e ".env/ports" ]]; then
+    source_env .env/ports
+fi
+
+
+export SEED_USERS="username:password<kiki@kikitool.com>"

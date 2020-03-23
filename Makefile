@@ -15,8 +15,7 @@ provision:
 	${COMPOSE_COMMAND} up -d
 	@bin/spring stop
 	@$$($(MAKE) --no-print-directory envs)
-	@$$(cat .env/ports) \
-	&& (bin/rails db:migrate 2> /dev/null) || bin/rails db:setup
+	@$$(cat .env/ports)
 .PHONY: provision
 
 unprovision:

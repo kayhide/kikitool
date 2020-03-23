@@ -1,11 +1,21 @@
 version: '3.2'
 services:
   db:
-    image: postgres:10.5-alpine
+    image: postgres:11.6-alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      PSQL_HISTFILE: /root/log/.psql_history
     ports:
       - 5432
 
   redis:
     image: redis:5.0-alpine
+    volumes:
+      - redis:/data
     ports:
       - 6379
+
+volumes:
+  postgres:
+  redis:
